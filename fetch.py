@@ -40,7 +40,10 @@ for use in cfg.uses:
 			print("分析花費 "+str(round((datetime.now()-timer).total_seconds()*1000, 2))+" ms")
 
 			timer = datetime.now()
-			w.writerows(res)
+			for row in res:
+				temp = [url]
+				temp.extend(row)
+				w.writerows([temp])
 			print("寫檔花費 "+str(round((datetime.now()-timer).total_seconds()*1000, 2))+" ms")
 			url = plugin.next(content)
 			if url == False:
