@@ -21,6 +21,9 @@ w = csv.writer(f)
 for use in uses:
 	print("使用  "+use)
 	try:
+		if use not in cfg.websites:
+			print("找不到 "+use)
+			continue
 		for website in cfg.websites[use]:
 			print("載入模組 "+website["plugin"])
 			plugin = importlib.import_module("plugins."+cfg.plugins[website["plugin"]])
@@ -60,9 +63,6 @@ for use in uses:
 				if url == False:
 					print("沒有下一頁，退出")
 					break
-
-	except KeyError:
-		print("找不到 "+use)
 	except KeyboardInterrupt:
 		print("使用者取消操作")
 f.close()
