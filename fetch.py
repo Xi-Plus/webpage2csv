@@ -14,7 +14,7 @@ try:
 except KeyboardInterrupt:
 	print()
 	print("使用者取消操作")
-	uses = []
+	exit()
 
 f = open("output.csv", "w", encoding = 'utf8', newline='')
 f.write('\ufeff')
