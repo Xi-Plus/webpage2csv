@@ -7,7 +7,7 @@ import config as cfg
 
 print("可使用的名稱如下")
 for website in cfg.websites:
-	print("  "+website)
+	print("  "+website+" ("+cfg.websites[website]["nick"]+")")
 print("輸入要抓取的名稱，以空格隔開：", end="")
 try:
 	uses = input().split()
@@ -25,7 +25,7 @@ for use in uses:
 		if use not in cfg.websites:
 			print("找不到 "+use)
 			continue
-		for website in cfg.websites[use]:
+		for website in cfg.websites[use]["urls"]:
 			print("載入模組 "+website["plugin"])
 			plugin = importlib.import_module("plugins."+cfg.plugins[website["plugin"]])
 				
