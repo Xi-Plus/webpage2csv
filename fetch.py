@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import urllib.request
 import csv
 from datetime import datetime, timedelta
@@ -15,7 +16,7 @@ except KeyboardInterrupt:
 	print("使用者取消操作")
 	uses = []
 
-f = open("output.csv","w")
+f = open("output.csv", "w", encoding = 'utf8', newline='')
 f.write('\ufeff')
 w = csv.writer(f)
 for use in uses:
