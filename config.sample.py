@@ -6,7 +6,7 @@ websites = {
 	"sitename":{
 		"nick": "nickname",
 		"urls": [
-			{"url":"url", "charset":"utf-8", "plugin":"pluginname"}
+			{"url":"url", "post": None, "charset":"utf-8", "plugin":"pluginname"}
 		]
 	}
 }

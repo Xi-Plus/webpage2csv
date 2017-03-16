@@ -30,13 +30,18 @@ for use in uses:
 			plugin = importlib.import_module("plugins."+cfg.plugins[website["plugin"]])
 				
 			url = website["url"]
-
 			while True:
 				print("開始抓取網頁 "+url)
+				if website["post"] == None:
+					post = None
+				else :
+					post = urllib.parse.urlencode(website["post"]).encode("utf-8")
+					print(post)
+
 				timer = datetime.now()
 				req = urllib.request.Request(
 					url, 
-					data = None, 
+					data = post, 
 					headers = {
 						'User-Agent': cfg.UserAgent
 					}
